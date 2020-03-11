@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+
+.page-content {
+  padding: 1em;
+}
+
+.app-page-title {
+  font-size: 3em;
+  font-weight: bold;
+  padding-left: 1.25rem;
+}
+
+.app-page-content {
+  padding: .2em 1.25em .2em 1.25rem;
+}
+
+.app-menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+  div {
+    margin: 2em;
+    text-align: center;
+
+    i {
+      font-size: 5em;
+      padding: .3em .1em .3em .1em;
+    }
+  }
+}
+
+
+.app-menu-item {
+  cursor: pointer;
+  flex-wrap: wrap;
+  min-width: 10em;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  border: 0;
+  width: 20em;
+}
+
+.app-menu-item:hover {
+  box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 1.25rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+:host {
+  display: inline-block;
+}
+
+:host:not(.file-input-disabled) {
+  cursor: pointer;
+}
+
+.input-file {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: red;
+}

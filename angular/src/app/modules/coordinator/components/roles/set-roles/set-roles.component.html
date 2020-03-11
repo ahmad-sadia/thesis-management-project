@@ -1,0 +1,48 @@
+<div mdbModal #roleSet="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="roleSet.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Set Role</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+          {{error}}
+        </div>
+        <form [formGroup]="form" (keydown.enter)="save()">
+          <div class="md-form">
+            <select class="browser-default custom-select" [formControl]="form.controls.roleId">
+              <option value="1">Student</option>
+              <option value="2">Opponent</option>
+              <option value="3">Supervisor</option>
+              <option value="4">Reader</option>
+              <option value="5">Coordinator</option>
+              <option value="6">Student + Opponent</option>
+              <option value="7">Student + Reader</option>
+              <option value="8">Supervisor + Reader</option>
+              <option value="10">Reader + Opponent</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                (click)="roleSet.hide()" mdbWavesEffect>Close
+        </button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="save()" mdbWavesEffect>Save
+          changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

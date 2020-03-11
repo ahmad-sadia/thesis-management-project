@@ -1,0 +1,41 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="app-page-title">Supervisor</div>
+  <div class="">
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{error}}
+    </div>
+    <div class="card-body">
+      <div>
+        <table class="table table-responsive-md table-striped">
+          <tr>
+            <th [mdbTableSort]="personList" sortBy="id">Id</th>
+            <th [mdbTableSort]="personList" sortBy="Email">Email</th>
+          </tr>
+          <tr *ngFor="let person of personList">
+            <td>
+              <div class="form-check">
+                <div class="flex-row">
+                  <div class="card-link">
+                    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios"
+                           mdbInput (change)="onChecked(person)">
+                    <label class="form-check-label" for="materialUnchecked"
+                           style="font-weight: bold">{{person.getFullName()}}</label>
+                  </div>
+                  <div class="">{{person.username}}</div>
+                </div>
+
+              </div>
+            </td>
+            <td>
+              {{person.email}}
+            </td>
+          </tr>
+        </table>
+        <button mdbBtn type="submit" color="green" (click)='suggest()' mdbWaveEffect>Suggest</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

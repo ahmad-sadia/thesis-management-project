@@ -1,0 +1,71 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light yellow darken-1" [containerInside]="false">
+
+  <mdb-navbar-brand><a class="navbar-brand">Navbar</a></mdb-navbar-brand>
+
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <div>
+          <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isCoordinator()">
+          <a class="nav-link waves-light" routerLink="coordinator" mdbWavesEffect>Coordinator<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isStudent()">
+          <a class="nav-link waves-light" routerLink="student" mdbWavesEffect>Student<span
+            class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isSupervisor()">
+          <a class="nav-link waves-light" routerLink="supervisor" mdbWavesEffect>Supervisor<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isReader()">
+          <a class="nav-link waves-light" routerLink="reader" mdbWavesEffect>Reader<span
+            class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isOpponent()">
+          <a class="nav-link waves-light" routerLink="opponent" mdbWavesEffect>Opponent<span
+            class="sr-only">(current)</span></a>
+        </div>
+      </li>
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <div *ngIf="this.auth.isLoggedIn(); else elseBlock">
+          <a class="nav-link waves-light" (click)='logout()' mdbWavesEffect>Logout</a>
+        </div>
+        <ng-template #elseBlock>
+          <a class="nav-link waves-light" routerLink="login" mdbWavesEffect>Login</a>
+        </ng-template>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <div class="btn-group" mdbDropdown>
+            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="divider dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links>
+
+</mdb-navbar>
+<!--/.Navbar-->

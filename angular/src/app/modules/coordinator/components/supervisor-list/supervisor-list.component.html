@@ -1,0 +1,44 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="app-page-title">Supervisor List</div>
+  <div>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center" [mdbTableSort]="users" sortBy="id">ID</th>
+            <th [mdbTableSort]="users" sortBy="username" class="text-center">UserName</th>
+            <th [mdbTableSort]="users" sortBy="firstName" class="text-center">First Name</th>
+            <th [mdbTableSort]="users" sortBy="lastName" class="text-center">Last Name</th>
+            <th [mdbTableSort]="users" sortBy="email" class="text-center">Email</th>
+            <th class="text-center">View</th>
+          </tr>
+          <tr *ngFor="let person of users; let id = index">
+            <td>
+            <span
+              contenteditable="false">{{person.id}}</span>
+            </td>
+            <td>
+            <span
+              contenteditable="false">{{person.username}}</span>
+            </td>
+            <td>
+              <span contenteditable="false">{{person.firstName}}</span>
+            </td>
+            <td>
+              <span contenteditable="false">{{person.lastName}}</span>
+            </td>
+            <td>
+              <span contenteditable="false">{{person.email}}</span>
+            </td>
+            <td>
+              <i class="fas fa-list" style="cursor: pointer;" (click)="viewStudents(person)"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

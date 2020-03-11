@@ -1,0 +1,36 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+
+
+  <app-submissions-edit #submissionsEdit (submissionsEdited)="edit($event)"></app-submissions-edit>
+
+  <div class="app-page-title">Deadline</div>
+  <div>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <app-submissions-add #submissionsAdd (submissionsAdded)="add($event)"></app-submissions-add>
+      </span>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Deadline</th>
+            <th class="text-center">Edit</th>
+          </tr>
+          <tr *ngFor="let elem of elements; let id = index">
+            <td>
+              <span contenteditable="false">{{elem.title}}</span>
+            </td>
+            <td>
+              <span contenteditable="false">{{elem.deadline}}</span>
+            </td>
+            <td>
+              <i class="fas fa-pen" style="cursor: pointer;" (click)="openEditComponent(elem)"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

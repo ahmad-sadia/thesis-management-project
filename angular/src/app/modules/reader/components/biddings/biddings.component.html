@@ -1,0 +1,40 @@
+<div class="page-content">
+    <app-breadcrumb></app-breadcrumb>
+    <app-set-bidding #bidSet (bidSet)="set($event)"></app-set-bidding>
+
+    <div class="app-page-title">Bid Reports</div>
+    <div>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <tr>
+                        <th class="text-center" [mdbTableSort]="bids" sortBy="id">ID</th>
+                        <th [mdbTableSort]="bids" sortBy="firstName" class="text-center">Reader Id</th>
+                        <th [mdbTableSort]="bids" sortBy="firstName" class="text-center">Report Id</th>
+                        <th class="text-center">Bid number</th>
+                        <th class="text-center">Assigned</th>
+                        <th class="text-center">Bid</th>
+                    </tr>
+                    <tr *ngFor="let bidding of bids">
+                        <td>{{bidding.id}}</td>
+                        <td>{{bidding.readerId}}</td>
+                        <td><a style="color: darkblue" href="{{getReportUrl(bidding.reportId)}}"
+                               target="_blank">download</a>
+                        </td>
+                        <td> {{bidding.getBiddingNumber()}} </td>
+                        <td> {{bidding.getAssigned()}}</td>
+                        <td>
+                            <button mdbBtn type="submit" color="blue" (click)='openBidComponent(bidding)'
+                                    mdbWaveEffect>Bid
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

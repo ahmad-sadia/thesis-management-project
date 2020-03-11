@@ -1,0 +1,31 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <app-set-confirms #confirm (supervisorConfirmed)="setConfirm($event)"></app-set-confirms>
+  <div class="app-page-title">Students</div>
+  <div>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center" [mdbTableSort]="confirmationList" sortBy="id">ID</th>
+            <th class="text-center">Student Id</th>
+            <th class="text-center">Project Plan Id</th>
+            <th class="text-center">Confirmed</th>
+          </tr>
+          <tr *ngFor="let item of confirmationList; let id = index">
+            <td>{{item.id}}</td>
+            <td>{{item.studentId}}</td>
+            <td>{{item.projectPlanId}}</td>
+            <td>
+              <i class="fas fa-check" *ngIf="item.confirmed > 0"></i>
+              <button *ngIf="item.confirmed == 0" mdbBtn type="submit" color="blue" (click)='openConfirmComponent(item)'
+                      mdbWaveEffect>Confirm
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

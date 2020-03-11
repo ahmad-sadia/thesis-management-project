@@ -1,0 +1,15 @@
+<div *ngIf="this.auth.isLoggedIn(); else elseBlock">
+    <div class="container">
+        <p class="text-uppercase" class="text-monospace" class="font-weight-bold">Welcome {{userName}}.</p>
+
+    </div>
+
+    <div class="container">
+        <h3>Deadlines</h3>
+        <div class="list-group">
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <welcome-page></welcome-page>
+</ng-template>

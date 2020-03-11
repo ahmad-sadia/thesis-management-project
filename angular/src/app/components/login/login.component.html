@@ -1,0 +1,35 @@
+<mdb-card style="margin:50px">
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>Login</h4>
+    </mdb-card-title>
+
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{error}}
+    </div>
+
+    <form [formGroup]="form" (keydown.enter)="login()">
+      <div class="md-form">
+        <label for="username">Username</label>
+        <input mdbInput mdbValidate type="text" [formControl]="form.controls.username" id="username"
+               class="form-control form-control-sm">
+        <mdb-error
+          *ngIf="form.controls.username.invalid && (form.controls.username.dirty || form.controls.username.touched)"
+        >Input invalid
+        </mdb-error>
+      </div>
+      <div class="md-form">
+        <label for="password">Password</label>
+        <input mdbInput mdbValidate type="password" [formControl]="form.controls.password" id="password"
+               class="form-control form-control-sm">
+        <mdb-error
+          *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)"
+        >Input invalid
+        </mdb-error>
+      </div>
+    </form>
+    <button mdbBtn type="submit" color="yellow" (click)='login()' value="login" mdbWaveEffect>Log-in</button>
+
+  </mdb-card-body>
+</mdb-card>
+

@@ -1,0 +1,43 @@
+
+<div mdbModal #submitFeedback="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="submitFeedback.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Submit</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+          {{error}}
+        </div>
+        <form [formGroup]="form" (keydown.enter)="submit()">
+          <div class="md-form">
+            <label for="title">Title</label>
+            <input mdbInput mdbValidate type="text" [formControl]="form.controls.title" id="title"
+                   class="form-control form-control-sm">
+            <mdb-error
+              *ngIf="form.controls.title.invalid && (form.controls.title.dirty || form.controls.title.touched)"
+            >Input invalid
+            </mdb-error>
+          </div>
+
+          <div class="md-form">
+            <input mdbInput type="file" id="file" (change)="onFileChange($event)" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                (click)="submitFeedback.hide()" mdbWavesEffect>Cancel
+        </button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="submit()" mdbWavesEffect>
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

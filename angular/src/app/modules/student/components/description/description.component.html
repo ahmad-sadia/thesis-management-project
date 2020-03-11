@@ -1,0 +1,20 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="app-page-title">Project Description</div>
+  <div class="app-page-content">
+    <table mdbTable hover="true">
+      <tbody>
+      <tr mdbTableCol *ngFor="let el of elements">
+        <td style="font-weight: bold">{{el.name}}</td>
+        <td>{{el.value}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <app-document-submit [type]="1" (documentSubmitted)="documentSubmitted($event)"></app-document-submit>
+  </div>
+
+  <app-feedbacks></app-feedbacks>
+
+</div>
+
+

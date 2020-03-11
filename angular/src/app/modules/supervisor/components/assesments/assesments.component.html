@@ -1,0 +1,37 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+
+  <app-feedback-submit #feedbackSubmit (feedbackSubmitted)="feedbackSubmitted($event)"></app-feedback-submit>
+
+  <div class="app-page-title">Report Assessments</div>
+  <div>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center" [mdbTableSort]="documents" sortBy="id">ID</th>
+            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Author Id</th>
+            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">File</th>
+            <th class="text-center">Feedback</th>
+            <th class="text-center">status</th>
+            <th class="text-center">Upload</th>
+          </tr>
+          <tr *ngFor="let document of documents; let id = index" >
+            <td>{{document.id}}</td>
+            <td>{{document.authorId}}</td>
+            <td>  <a style="color: darkblue" href="{{document.getDownloadLink()}}" target="_blank">{{document.title}}.pdf</a></td>
+            <!--            <td style="font-weight: bold">{{el.name}}</td>-->
+            <td>  </td>
+            <td></td>
+            <!--            <td>{{el.value}}</td>-->
+            <td>
+              <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="openFeedbackSubmitComponent(document)"
+                      mdbWavesEffect>Feedback</button>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
